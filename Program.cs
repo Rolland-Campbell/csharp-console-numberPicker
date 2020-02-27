@@ -17,16 +17,23 @@ namespace numberPicker
             bool running = true;
         while(running){
 
-            int choice = Convert.ToInt32(Console.ReadLine());
+            string choice = Console.ReadLine();
+           try{
+               int result = Int32.Parse(choice);
             Console.WriteLine($"You picked the number {choice}");
-            if(choice == computerChoice){
+            if(result == computerChoice){
                 Console.WriteLine("You got it right! Congradulations!!");
                 running = false;
-            }else if(choice < computerChoice){
+            }else if(result < computerChoice){
                 Console.WriteLine("You guessed too low, try again");
             }else {
                 Console.WriteLine("You guessed too high, try again");
-        }
+            }
+           }
+           catch (FormatException){
+               Console.WriteLine("That is not a number, please pick a number.");
+           }
+
         }
     }
 }}
