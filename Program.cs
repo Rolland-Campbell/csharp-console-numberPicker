@@ -7,7 +7,7 @@ namespace numberPicker
         static void Main(string[] args)
         {
             Random randomNum = new Random();
-            int computerChoice = randomNum.Next(0, 100);
+            int computerChoice = randomNum.Next(1, 101);
             
             Console.WriteLine(@"
             Welcome to number picker.
@@ -22,15 +22,19 @@ namespace numberPicker
                int result = Int32.Parse(choice);
             Console.WriteLine($"You picked the number {choice}");
             if(result == computerChoice){
+                Console.Clear();
                 Console.WriteLine("You got it right! Congradulations!!");
                 running = false;
             }else if(result < computerChoice){
+                Console.Clear();
                 Console.WriteLine("You guessed too low, try again");
             }else {
+                Console.Clear();
                 Console.WriteLine("You guessed too high, try again");
             }
            }
            catch (FormatException){
+               Console.Clear();
                Console.WriteLine("That is not a number, please pick a number.");
            }
 
